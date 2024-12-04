@@ -46,9 +46,11 @@ $messageId = $response->getMessageId();
 The ability to send an image directly from an URL has now been added to the library. Instead of supplying a local path and filename, you may now pass the image URL.
 
 ```php
+use Telegram\Bot\FileUpload\InputFile;
+
 $response = $telegram->sendPhoto([
 	'chat_id' => 'CHAT_ID',
-	'photo' => 'http://example.com/photos/image.jpg',
+	'photo' => new InputFile('http://example.com/photos/image.jpg'),
 	'caption' => 'Some caption'
 ]);
 
